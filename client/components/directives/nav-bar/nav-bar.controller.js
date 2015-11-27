@@ -3,12 +3,10 @@ function NavBarCtrl($scope, $meteor, $state, alertService, $rootScope) {
         $rootScope.loading = true;
         $meteor.logout().then(function () {
             $rootScope.loading = false;
-            alertService.clear();
             alertService.add("info", "You have been successfully logged out.");
             $state.go('full.staticHome');
         }, function (err) {
             $rootScope.loading = false;
-            alertService.clear();
             alertService.add("danger", "Errors logging out: " + err.reason);
         });
     };

@@ -2,7 +2,6 @@ function AuthLoginCtrl($scope, $meteor, $state, alertService, $rootScope) {
 
 
     $scope.loginUser = function () {
-
         $rootScope.loading = true;
 
         $meteor.loginWithPassword($scope.email, $scope.password).then(function () {

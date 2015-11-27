@@ -1,12 +1,12 @@
 function alertService($rootScope, $timeout) {
     $rootScope.alerts = [];
+
     return {
         add: function (type, msg) {
             return $rootScope.alerts.push({
                 type: type,
                 msg: msg,
                 autoclose: this.timeout(),
-
                 close: function () {
                     return this.closeAlert(this);
                 },
@@ -23,7 +23,7 @@ function alertService($rootScope, $timeout) {
         },
         timeout: function () {
             $timeout(function () {
-                $rootScope.alerts = [];
+                return $rootScope.alerts.splice(this, 1);
             }, 3000);
         }
     };
