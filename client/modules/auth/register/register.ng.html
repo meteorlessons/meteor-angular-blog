@@ -70,7 +70,7 @@
                            ng-model="password_confirm"
                            placeholder="Password Confirmation"
                            ng-minlength="6"
-                           password-match="password"
+                           compare-to="password"
                            required>
                     <div class="help-block"
                          ng-messages="registerForm.password_confirm.$error"
