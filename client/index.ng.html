@@ -1,0 +1,26 @@
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <title>Fixed Top Navbar Example for Bootstrap</title>
+    <base href="/">
+</head>
+
+<body>
+<nav-bar></nav-bar>
+
+<div class="container">
+    <div class="row">
+        <div>
+            <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{alert.msg}}</alert>
+        </div>
+        <div ui-view></div>
+    </div>
+
+</div>
+
+<footer-bar></footer-bar>
+
+</body>

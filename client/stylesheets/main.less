@@ -1,0 +1,76 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,500,500italic,700);
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 65px;
+  margin-bottom: 40px;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  background: repeating-linear-gradient(45deg, #EEEEEE, #EEEEEE 10px, #E7E7E7 10px, #E7E7E7 20px);
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+.panel {
+  -webkit-box-shadow: 0 0 8px 0 rgba(204, 204, 204, 1);
+  -moz-box-shadow: 0 0 8px 0 rgba(204, 204, 204, 1);
+  box-shadow: 0 0 8px 0 rgba(204, 204, 204, 1);
+  border: 1px #cccccc solid;
+  .panel-footer {
+    background-color: #ffffff;
+  }
+}
+
+h1:first-of-type,
+h2:first-of-type,
+h3:first-of-type {
+  margin-top: 0;
+}
+
+i {
+  margin-right: 5px;
+}
+
+.has-success input {
+  background-color: #e1ffd4;
+
+}
+.has-success label::before {
+  font-family: FontAwesome;
+  position: relative;
+  top: 2px;
+  left: -5px;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.2em;
+  content: "\f00c";
+}
+
+.has-error label::before {
+  font-family: FontAwesome;
+  position: relative;
+  top: 2px;
+  left: -5px;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.2em;
+  content: "\f071";
+}
+
+
+.has-error input {
+  background-color: #ffd9e0;
+}
+
+////////////
+// IMPORTS
+////////////
+@import "../components/directives/nav-bar/nav-bar.import.less";
+@import "../components/directives/footer-bar/footer-bar.import.less";
+@import "../components/services/alert-service/alert-service.import.less";

@@ -1,0 +1,54 @@
+<div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Login</h3>
+        </div>
+        <form name="loginForm" ng-submit="loginUser()" novalidate role="form">
+            <div class="panel-body">
+
+                <div class="form-group"
+                     ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
+                    <label class="control-label" for="email">Email</label>
+                    <input class="form-control"
+                           id="email" name="email"
+                           ng-model="email"
+                           placeholder="Email"
+                           required
+                           type="email">
+
+                    <div class="help-block" ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched">
+                        <div ng-messages-include="client/modules/messages.ng.html"></div>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid }">
+                    <label class="control-label" for="password">Password</label>
+                    <input class="form-control"
+                           id="password"
+                           name="password"
+                           ng-minlength="6"
+                           ng-model="password"
+                           placeholder="Password"
+                           required
+                           type="password">
+                    <div class="help-block" ng-messages="loginForm.password.$error"
+                         ng-show="loginForm.password.$touched">
+                        <div ng-messages-include="client/modules/messages.ng.html"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <button ng-disabled="loginForm.$invalid" class="btn btn-primary" id="submit" type="submit">
+                    <i class="fa fa-sign-in"></i>Login
+                </button>
+                <a class="btn btn-link pull-right" ui-sref="authForgotPassword">
+                    <i class="fa fa-question"></i>Forgot Password</a>
+                <a class="btn btn-link pull-right" ui-sref="authRegister">
+                    <i class="fa fa-plus"></i>Register Account
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
