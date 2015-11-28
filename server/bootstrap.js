@@ -6,7 +6,7 @@ Meteor.startup(function () {
     };
 
     if (Meteor.users.find().count() === 0) {
-        Accounts.createUser({
+        var id = Accounts.createUser({
             username: 'admin',
             email: 'admin@example.com',
             password: 'secret',
@@ -17,6 +17,8 @@ Meteor.startup(function () {
                 bio: '<p>This is the admin user bio</p>'
             }
         });
+
+        Roles.addUsersToRoles(id, ['admin', 'member']);
     }
 
 
