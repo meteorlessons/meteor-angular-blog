@@ -17,7 +17,7 @@
                            type="email">
 
                     <div class="help-block" ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched">
-                        <div ng-messages-include="client/modules/messages.ng.html"></div>
+                        <div ng-messages-include="client/components/directives/validators/messages.ng.html"></div>
                     </div>
                 </div>
 
@@ -34,7 +34,7 @@
                            type="password">
                     <div class="help-block" ng-messages="loginForm.password.$error"
                          ng-show="loginForm.password.$touched">
-                        <div ng-messages-include="client/modules/messages.ng.html"></div>
+                        <div ng-messages-include="client/components/directives/validators/messages.ng.html"></div>
                     </div>
                 </div>
 

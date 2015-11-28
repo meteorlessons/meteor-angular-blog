@@ -1,4 +1,4 @@
-function routes($stateProvider, $urlRouterProvider) {
+function routes($stateProvider) {
     $stateProvider
         .state('full.staticHome', {
             url: "/",

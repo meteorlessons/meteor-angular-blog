@@ -2,7 +2,7 @@ function UsersDashboardCtrl($scope, $stateParams, $meteor, alertService, $rootSc
 
     $scope.user = $meteor.object(Meteor.users, $stateParams.userId, false);
 
-    $scope.createdOn = "Created on: "+moment($scope.user.createdAt).format("MM-DD-YYYY");
+    $scope.createdOn = "Signed up: "+moment($scope.user.createdAt).format("MM-DD-YYYY");
 
 
     $scope.editMode = false;
