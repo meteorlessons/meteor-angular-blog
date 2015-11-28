@@ -6,7 +6,8 @@ angular.module('app', [
     'textAngular',
     'app-static',
     'app-auth',
-    'app-users'
+    'app-users',
+    'app-blog'
 ]);
 
 function onReady() {

@@ -1,0 +1,51 @@
+<h1>Blog Create</h1>
+
+
+<div class="row blog-post">
+    <form name="createBlogPostForm" role="form" class="col-md-12" ng-submit="createBlogPost()" novalidate>
+        <div class="form-group"
+             ng-class="{ 'has-error': createBlogPostForm.postTitle.$touched && createBlogPostForm.postTitle.$invalid,
+                         'has-success': createBlogPostForm.postTitle.$touched && !createBlogPostForm.postTitle.$invalid}">
+            <label for="postTitle" class="control-label">Post Title</label>
+            <input name="postTitle"
+                   type="text"
+                   class="form-control"
+                   id="postTitle"
+                   ng-model="postTitle"
+                   ng-minlength="6"
+                   placeholder="Post Title"
+                   required>
+            <div class="help-block"
+                 ng-messages="createBlogPostForm.postTitle.$error"
+                 ng-show="createBlogPostForm.postTitle.$touched">
+                <div ng-messages-include="client/components/directives/validators/messages.ng.html"></div>
+            </div>
+        </div>
+
+        <div class="form-group post-summary"
+             ng-class="{ 'has-error': createBlogPostForm.summary.$touched && createBlogPostForm.summary.$invalid,
+                         'has-success': createBlogPostForm.summary.$touched && !createBlogPostForm.summary.$invalid}">
+            <label for="summary" class="control-label">Post Summary</label>
+            <div class="help-block"
+                 ng-messages="createBlogPostForm.summary.$error"
+                 ng-show="createBlogPostForm.summary.$touched">
+                <div ng-messages-include="client/components/directives/validators/messages.ng.html"></div>
+            </div>
+            <text-angular name="summary" id="summary" ng-minlength="20" ng-maxlength="400" ng-model="summary" required></text-angular>
+        </div>
+
+        <div class="form-group post-body"
+             ng-class="{ 'has-error': createBlogPostForm.body.$touched && createBlogPostForm.body.$invalid,
+                         'has-success': createBlogPostForm.body.$touched && !createBlogPostForm.body.$invalid}">
+            <label for="body" class="control-label">Post Body</label>
+            <div class="help-block"
+                 ng-messages="createBlogPostForm.body.$error"
+                 ng-show="createBlogPostForm.body.$touched">
+                <div ng-messages-include="client/components/directives/validators/messages.ng.html"></div>
+            </div>
+            <text-angular name="body" id="body" ng-model="body" ng-minlength="140" required></text-angular>
+        </div>
+        <br>
+        <button ng-disabled="createBlogPostForm.$invalid" class="btn btn-primary" type="submit">Submit Post</button>
+    </form>
+</div>
