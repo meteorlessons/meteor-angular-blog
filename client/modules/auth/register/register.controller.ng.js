@@ -5,7 +5,8 @@ function AuthRegisterCtrl($scope, $meteor, $state, alertService, $rootScope) {
         $meteor.createUser({
             username: $scope.username,
             email: $scope.email,
-            password: $scope.password
+            password: $scope.password,
+            createdAt: new Date()
         }).then(function () {
             $rootScope.loading = false;
             alertService.add("success", "Your account has been created, and you are now logged in.");

@@ -1,6 +1,5 @@
 function alertService($rootScope, $timeout) {
     $rootScope.alerts = [];
-
     return {
         add: function (type, msg) {
             return $rootScope.alerts.push({

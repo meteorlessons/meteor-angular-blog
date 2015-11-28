@@ -3,8 +3,10 @@ angular.module('app', [
     'ui.router',
     'ui.bootstrap',
     'ngMessages',
+    'textAngular',
     'app-static',
-    'app-auth'
+    'app-auth',
+    'app-users'
 ]);
 
 function onReady() {

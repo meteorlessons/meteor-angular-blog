@@ -25,3 +25,5 @@ angularui:angular-ui-bootstrap
 angular:angular-messages
 promise
 angular:angular-animate
+dyaa:text-angular
+momentjs:moment
