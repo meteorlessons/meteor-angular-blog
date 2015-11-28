@@ -11,7 +11,7 @@
             <button class="btn btn-primary btn-block">Update Image</button>
         </div>
 
-        <div class="col-md-10 content" ng-hide="editMode">
+        <div class="col-md-7 content" ng-hide="editMode">
             <p ng-hide="user.profile">No profile info has been added</p>
             <div ng-show="user.profile">
                 <h3 class="user-name">
@@ -26,10 +26,28 @@
 
                 </div>
             </div>
-            <br>
-            <button class="btn btn-primary" ng-click="editUser()">Update Profile</button>
+
         </div>
 
+        <div ng-hide="editMode" class="col-md-3 actions">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="#" class="text-primary" ng-click="editUser()">
+                        <i class="fa fa-edit"></i>Update Profile
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a class="text-danger" ui-sref="authChangePassword({userId: $root.currentUser._id})">
+                        <i class="fa fa-warning"></i>Change Password
+                    </a>
+                </li>
+
+            </ul>
+
+
+        </div>
+
+        <!-- EDIT MODE -->
         <div ng-show="editMode" class="col-md-12">
             <form name="userProfileForm" role="form" ng-submit="updateUserProfile()" novalidate>
                 <div class="row">
@@ -67,5 +85,6 @@
             </form>
 
         </div>
+        <!--<< EDIT MODE >>-->
     </div>
 </div>

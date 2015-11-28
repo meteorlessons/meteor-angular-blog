@@ -47,6 +47,18 @@ function routes($stateProvider) {
                     }
                 }
             }
+        })
+        .state('authChangePassword', {
+            url: '/auth/change-password/:userId',
+            templateUrl: 'client/modules/auth/change-password/change-password.ng.html',
+            controller: 'AuthChangePasswordCtrl',
+            resolve: {
+                "currentUser": function ($rootScope, $q) {
+                    if (!$rootScope.currentUser) {
+                        return $q.reject('UNAUTHORIZED');
+                    }
+                }
+            }
         });
 }
 
