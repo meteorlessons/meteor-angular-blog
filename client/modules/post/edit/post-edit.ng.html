@@ -1,0 +1,71 @@
+<h1>Post Edit</h1>
+
+<div class="row blog-post">
+    <form name="editPostForm" role="form" class="col-md-12" ng-submit="editPost()" novalidate>
+        <div class="form-group"
+             ng-class="{ 'has-error': editPostForm.title.$touched && editPostForm.title.$invalid,
+                         'has-success': editPostForm.title.$touched && !editPostForm.title.$invalid}">
+            <label for="title" class="control-label">Post Title</label>
+            <input name="title"
+                   type="text"
+                   class="form-control"
+                   id="title"
+                   ng-minlength="6"
+                   placeholder="Post Title"
+                   ng-model="post.title"
+                   required>
+            <div class="help-block"
+                 ng-messages="editPostForm.title.$error"
+                 ng-show="editPostForm.title.$touched">
+                <div ng-messages-include="client/components/directives/validators/messages.ng.html"></div>
+            </div>
+        </div>
+
+        <div class="form-group post-summary"
+             ng-class="{ 'has-error': editPostForm.summary.$touched && editPostForm.summary.$invalid,
+                         'has-success': editPostForm.summary.$touched && !editPostForm.summary.$invalid}">
+            <label for="summary" class="control-label">Post Summary</label>
+            <div class="help-block"
+                 ng-messages="editPostForm.summary.$error"
+                 ng-show="editPostForm.summary.$touched">
+                <div ng-messages-include="client/components/directives/validators/messages.ng.html"></div>
+            </div>
+            <text-angular name="summary"
+                          id="summary"
+                          ng-minlength="20"
+                          ng-maxlength="400"
+                          required
+                          ng-model="post.summary">
+
+            </text-angular>
+        </div>
+
+        <div class="form-group post-body"
+             ng-class="{ 'has-error': editPostForm.body.$touched && editPostForm.body.$invalid,
+                         'has-success': editPostForm.body.$touched && !editPostForm.body.$invalid}">
+            <label for="body" class="control-label">Post Body</label>
+            <div class="help-block"
+                 ng-messages="editPostForm.body.$error"
+                 ng-show="editPostForm.body.$touched">
+                <div ng-messages-include="client/components/directives/validators/messages.ng.html"></div>
+            </div>
+            <text-angular name="body"
+                          id="body"
+                          ng-minlength="140"
+                          ng-model="post.body"
+                          required>
+            </text-angular>
+        </div>
+        <div class="checkbox">
+            <label for="published">
+                <input name="published"
+                       id="published"
+                       type="checkbox"
+                       ng-model="post.published">
+                Publish Post?
+            </label>
+        </div>
+        <br>
+        <button ng-disabled="editPostForm.$invalid" class="btn btn-primary" type="submit">Edit Post</button>
+    </form>
+</div>

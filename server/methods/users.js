@@ -6,8 +6,9 @@ Meteor.methods({
      * @returns {*}
      */
     addRoleToBasicUser: function(userId){
-        if(userId === Meteor.userId()){
-            return Roles.addUsersToRoles(userId, ['member'], 'standard-group');
+        check(userId, this.userId);
+        if(userId === this.userId){
+            return Roles.addUsersToRoles(userId, ['member']);
         }
         throw new Meteor.Error('FORBIDDEN');
     },
@@ -19,10 +20,18 @@ Meteor.methods({
      * @returns {*|any}
      */
     updateUserProfile: function (userId, user) {
-        if (userId === Meteor.userId()) {
+        check(userId, this.userId);
+        check(user, {
+            profile: {
+                first_name: String,
+                last_name: String,
+                bio: String
+            }
+        });
+        if (userId === this.userId) {
             return Meteor.users.update({_id: userId}, {
                 $set: {
-                    "updatedAt": user.updatedAt,
+                    "updatedAt": new Date(),
                     "profile": {
                         "first_name": user.profile.first_name,
                         "last_name": user.profile.last_name,

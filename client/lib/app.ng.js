@@ -7,7 +7,7 @@ angular.module('app', [
     'app-static',
     'app-auth',
     'app-users',
-    'app-blog'
+    'app-post'
 ]);
 
 function onReady() {

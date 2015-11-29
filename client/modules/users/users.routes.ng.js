@@ -1,7 +1,7 @@
 function routes($stateProvider) {
     $stateProvider
         .state('full.usersDashboard', {
-            url: '/users/dashboard/:userId',
+            url: '/users/:userId/dashboard',
             templateUrl: 'client/modules/users/dashboard/dashboard.ng.html',
             controller: 'UsersDashboardCtrl',
             resolve: {
@@ -14,6 +14,11 @@ function routes($stateProvider) {
                     });
                 }
             }
+        })
+        .state('full.usersPosts', {
+            url: '/users/:userId/posts',
+            templateUrl: 'client/modules/users/posts/users-posts.ng.html',
+            controller: 'UsersPostsCtrl as usersPosts'
         });
 }
 

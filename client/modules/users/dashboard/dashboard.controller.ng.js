@@ -2,7 +2,7 @@ function UsersDashboardCtrl($scope, $stateParams, $meteor, alertService, $rootSc
 
     $scope.user = $meteor.object(Meteor.users, $stateParams.userId, false);
 
-    $scope.createdOn = "Signed up: "+moment($scope.user.createdAt).format("MM-DD-YYYY");
+    $scope.createdOn = "Signed up: " + moment($scope.user.createdAt).format("MM-DD-YYYY");
 
 
     $scope.editMode = false;
@@ -16,9 +16,9 @@ function UsersDashboardCtrl($scope, $stateParams, $meteor, alertService, $rootSc
     };
 
     $scope.updateUserProfile = function () {
+
         $rootScope.loading = true;
         var userAttributes = {
-            updatedAt: new Date(),
             profile: {
                 first_name: $scope.user.profile.first_name,
                 last_name: $scope.user.profile.last_name,
