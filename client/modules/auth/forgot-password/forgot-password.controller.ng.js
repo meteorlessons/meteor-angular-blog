@@ -1,4 +1,7 @@
-function AuthForgotPasswordCtrl($scope, $meteor, alertService, $rootScope) {
+function AuthForgotPasswordCtrl($scope, $meteor, alertService, $rootScope, HeadMeta) {
+    HeadMeta.setTitle("Forgot Password");
+    HeadMeta.setMetaDescription("Blog using meteor and angular js.");
+    HeadMeta.setMetaKeywords("meteor, angular");
 
     $scope.forgotPasswordSend = function () {
         $rootScope.loading = true;

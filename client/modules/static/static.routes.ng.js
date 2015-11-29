@@ -7,11 +7,13 @@ function routes($stateProvider) {
         })
         .state('full.staticAbout', {
             url: '/about',
-            templateUrl: 'client/modules/static/about/about.ng.html'
+            templateUrl: 'client/modules/static/about/about.ng.html',
+            controller: 'StaticAboutCtrl'
         })
         .state('full.staticContact', {
             url: '/contact',
-            templateUrl: 'client/modules/static/contact/contact.ng.html'
+            templateUrl: 'client/modules/static/contact/contact.ng.html',
+            controller: 'StaticContactCtrl'
         });
 }
 

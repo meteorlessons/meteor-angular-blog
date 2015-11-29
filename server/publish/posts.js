@@ -1,27 +1,90 @@
 Meteor.publish('editPost', function (postId, userId) {
     check(userId, this.userId);
-    return Posts.find({_id: postId, owner: userId});
+    return Posts.find({
+        $or: [
+            {
+                $and: [
+                    {"_id": postId}
+                ]
+            },
+            {
+                $and: [
+                    {"owner": userId}
+                ]
+            }
+        ]
+    });
 });
 
 Meteor.publish('usersPublishedPosts', function (userId) {
     check(userId, this.userId);
-    return Posts.find({published: true, owner: userId});
+    return Posts.find({
+        $or: [
+            {
+                $and: [
+                    {"published": true}
+                ]
+            },
+            {
+                $and: [
+                    {"owner": userId}
+                ]
+            }
+        ]
+    });
 });
 
 Meteor.publish('usersPosts', function (userId) {
     check(userId, this.userId);
-    return Posts.find({owner: userId});
+    return Posts.find({
+        $or: [
+            {
+                $and: [
+                    {"owner": userId}
+                ]
+            }
+        ]
+    });
 });
 
 Meteor.publish('publishedPosts', function () {
-    return Posts.find({published: true});
+    return Posts.find({
+        $or: [
+            {
+                $and: [
+                    {"published": true}
+                ]
+            }
+        ]
+    });
 });
 
 Meteor.publish('postView', function (postId) {
-    return Posts.find({_id: postId, published: true});
+    return Posts.find({
+        $or: [
+            {
+                $and: [
+                    {"_id": postId}
+                ]
+            }
+        ]
+    });
 });
 
 Meteor.publish('previewPost', function (userId, postId) {
     check(userId, this.userId);
-    return Posts.find({_id: postId, owner: userId});
+    return Posts.find({
+        $or: [
+            {
+                $and: [
+                    {"_id": postId}
+                ]
+            },
+            {
+                $and: [
+                    {"owner": userId}
+                ]
+            }
+        ]
+    });
 });

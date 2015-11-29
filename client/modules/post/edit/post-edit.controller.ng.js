@@ -1,7 +1,12 @@
-function PostEditCtrl($scope, $rootScope, $meteor, $state, $stateParams, alertService) {
+function PostEditCtrl($scope, $rootScope, $meteor, $state, $stateParams, alertService, HeadMeta) {
 
-    $scope.post = $meteor.object(Posts, $stateParams.postId, false)
-        .subscribe('editPost', $stateParams.postId, $stateParams.userId);
+    $scope.$meteorSubscribe('editPost', $stateParams.postId, $stateParams.userId);
+
+    $scope.post = $meteor.object(Posts, $stateParams.postId, false);
+
+    HeadMeta.setTitle($scope.post.title);
+    HeadMeta.setMetaDescription($scope.post.summary);
+    HeadMeta.setMetaKeywords("meteor, angular");
 
     $scope.editPost = function () {
         $rootScope.loading = true;

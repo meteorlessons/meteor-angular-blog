@@ -4,7 +4,9 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="" name="description">
     <meta content="" name="author">
-    <title>Fixed Top Navbar Example for Bootstrap</title>
+    <title ng-bind="HeadMeta.title()"></title>
+    <meta name="description" content="{{ HeadMeta.metaDescription() }}">
+    <meta name="keywords" content="{{ HeadMeta.metaKeywords() }}">
     <base href="/">
 </head>
 

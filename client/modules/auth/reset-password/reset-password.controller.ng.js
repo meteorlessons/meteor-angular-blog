@@ -1,4 +1,7 @@
-function AuthResetPasswordCtrl($scope, $meteor, $stateParams, $state, alertService, $rootScope) {
+function AuthResetPasswordCtrl($scope, $meteor, $stateParams, $state, alertService, $rootScope, HeadMeta) {
+    HeadMeta.setTitle("Reset Password");
+    HeadMeta.setMetaDescription("Blog using meteor and angular js.");
+    HeadMeta.setMetaKeywords("meteor, angular");
 
     $scope.resetPassword = function () {
         $rootScope.loading = true;

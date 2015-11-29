@@ -1,4 +1,7 @@
-function AuthChangePasswordCtrl($scope, $meteor, $rootScope, alertService, $state) {
+function AuthChangePasswordCtrl($scope, $meteor, $rootScope, alertService, $state, HeadMeta) {
+    HeadMeta.setTitle("Change Your Password");
+    HeadMeta.setMetaDescription("Blog using meteor and angular js.");
+    HeadMeta.setMetaKeywords("meteor, angular");
 
     $scope.changePassword = function () {
         $rootScope.loading = true;

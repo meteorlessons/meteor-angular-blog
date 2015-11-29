@@ -1,5 +1,7 @@
-function AuthLoginCtrl($scope, $meteor, $state, alertService, $rootScope) {
-
+function AuthLoginCtrl($scope, $meteor, $state, alertService, $rootScope, HeadMeta) {
+    HeadMeta.setTitle("Login | Meteor Angular Blog");
+    HeadMeta.setMetaDescription("Blog using meteor and angular js.");
+    HeadMeta.setMetaKeywords("meteor, angular");
 
     $scope.loginUser = function () {
         $rootScope.loading = true;

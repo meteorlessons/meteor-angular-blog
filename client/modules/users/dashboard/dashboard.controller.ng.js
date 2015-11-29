@@ -1,4 +1,8 @@
-function UsersDashboardCtrl($scope, $stateParams, $meteor, alertService, $rootScope) {
+function UsersDashboardCtrl($scope, $stateParams, $meteor, alertService, $rootScope, HeadMeta) {
+
+    HeadMeta.setTitle($rootScope.currentUser.username.toUpperCase() + " User Dashboard");
+    HeadMeta.setMetaDescription("meteor angular blog");
+    HeadMeta.setMetaKeywords("meteor, angular");
 
     $scope.user = $meteor.object(Meteor.users, $stateParams.userId, false);
 

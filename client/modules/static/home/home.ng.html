@@ -13,15 +13,13 @@
     </div>
     <div class="col-md-9 post-list">
         <dl ng-repeat="post in posts">
-            <dt>{{post.title}}
+            <dt>
+                <a ui-sref="full.postView({postId: post._id})" class="text-info">{{post.title}}</a>
                 <small>Posted on: {{ post.createdAt | date : format : 'short'}} </small>
                 <small>Author: <a ui-sref="full.usersProfile({userId: post.owner})">{{post.ownerName}}</a></small>
             </dt>
             <dd>
                 <div ta-bind ng-model="post.summary"></div>
-                <a ui-sref="full.postView({postId: post._id})" class="text-info">
-                    <i class="fa fa-eye"></i>View Post
-                </a>
             </dd>
         </dl>
     </div>

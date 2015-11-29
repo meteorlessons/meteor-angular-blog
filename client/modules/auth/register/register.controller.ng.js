@@ -1,4 +1,7 @@
-function AuthRegisterCtrl($scope, $meteor, $state, alertService, $rootScope) {
+function AuthRegisterCtrl($scope, $meteor, $state, alertService, $rootScope, HeadMeta) {
+    HeadMeta.setTitle("Register Account | Meteor Angular Blog");
+    HeadMeta.setMetaDescription("Blog using meteor and angular js.");
+    HeadMeta.setMetaKeywords("meteor, angular");
 
     $scope.createUser = function () {
         $rootScope.loading = true;

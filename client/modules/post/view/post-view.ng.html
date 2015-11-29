@@ -1,23 +1,19 @@
-<div class="row">
-    <div class="col-md-12 header">
+<div class="row post-header">
+    <div class="col-md-12">
         <h1>
-            <i class="fa fa-dashboard"></i>{{post.title}}
+            <i class="fa fa-copy"></i>{{post.title}}
         </h1>
-        <p class="text-muted">
-            Author: <a ui-sref="full.usersProfile({userId: post.owner})">{{post.ownerName}}</a><br>
-            Posted on: {{ post.createdAt | date : format : 'short'}}
-        </p>
+        <span>Author: <a ui-sref="full.usersProfile({userId: post.owner})">{{post.ownerName}}</a></span>
+        <span>Posted on: {{ post.createdAt | date : format : 'short'}}</span>
+        <a ui-sref="full.postEdit({userId: $root.currentUser._id, postId: post._id})"
+           class="btn btn-warning edit-post"
+           ng-show="post.owner === $root.currentUser._id">
+            <i class="fa fa-edit"></i>Edit Post
+        </a>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12 post-view">
-
-        <div ta-bind ng-model="post.body"></div>
-        <div ng-show="post.owner === $root.currentUser._id">
-            <a ui-sref="full.postEdit({userId: $root.currentUser._id, postId: post._id})"
-               class="text-warning">
-                <i class="fa fa-edit"></i>Edit Post
-            </a>
-        </div>
+        <div ng-bind-html="post.body"></div>
     </div>
 </div>
