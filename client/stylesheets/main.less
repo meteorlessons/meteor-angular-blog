@@ -41,6 +41,7 @@ i {
   background-color: #e1ffd4;
 
 }
+
 .has-success label::before {
   font-family: FontAwesome;
   position: relative;
@@ -63,11 +64,46 @@ i {
   content: "\f071";
 }
 
-
 .has-error input {
   background-color: #ffd9e0;
 }
 
+.post-list {
+  dl {
+    margin: 0 0 15px 0;
+    border-bottom: 1px #ccc solid;
+    padding-bottom: 5px;
+
+    &:last-child {
+      border: none;
+    }
+    dt small {
+      display: block;
+      margin: 0;
+      font-weight: normal;
+      font-style: italic;
+      color: #666666;
+      span {
+        margin-left: 10px;
+      }
+      p {
+        margin: 0;
+      }
+    }
+    dd {
+      p {
+        margin: 0 0 5px 0;
+      }
+      a {
+        text-align: left;
+        padding: 0;
+        margin-right: 10px;
+
+      }
+    }
+  }
+
+}
 
 ////////////
 // IMPORTS

@@ -14,7 +14,9 @@ Meteor.methods({
             body: post.body,
             published: post.published,
             createdAt: new Date(),
-            owner: this.userId
+            updatedAt: new Date(),
+            owner: this.userId,
+            ownerName: Meteor.user().username
         });
     },
     updatePost: function (userId, postId, post) {

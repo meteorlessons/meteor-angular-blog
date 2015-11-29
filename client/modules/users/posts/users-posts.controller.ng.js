@@ -1,4 +1,6 @@
-function UsersPostsCtrl($meteor){
+function UsersPostsCtrl($scope, $meteor){
+
+    $scope.posts = $meteor.collection(Posts, Meteor.userId(), false).subscribe('usersPosts', Meteor.userId());
 
 }
 

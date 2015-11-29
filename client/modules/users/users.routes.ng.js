@@ -5,8 +5,8 @@ function routes($stateProvider) {
             templateUrl: 'client/modules/users/dashboard/dashboard.ng.html',
             controller: 'UsersDashboardCtrl',
             resolve: {
-                "currentUser": function($meteor, $q){
-                    return $meteor.requireValidUser(function(user) {
+                "currentUser": function ($meteor, $q) {
+                    return $meteor.requireValidUser(function (user) {
                         if (Roles.userIsInRole(user, ['member'])) {
                             return true;
                         }
@@ -15,10 +15,20 @@ function routes($stateProvider) {
                 }
             }
         })
+        .state('full.usersEditProfile', {
+            url: '/users/:userId/profile/edit',
+            templateUrl: 'client/modules/users/edit-profile/edit-profile.ng.html',
+            controller: 'UsersEditProfileCtrl'
+        })
+        .state('full.usersProfile', {
+            url: '/users/:userId/profile',
+            templateUrl: 'client/modules/users/profile/users-profile.ng.html',
+            controller: 'UsersProfileCtrl'
+        })
         .state('full.usersPosts', {
             url: '/users/:userId/posts',
             templateUrl: 'client/modules/users/posts/users-posts.ng.html',
-            controller: 'UsersPostsCtrl as usersPosts'
+            controller: 'UsersPostsCtrl'
         });
 }
 

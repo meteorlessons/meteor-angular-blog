@@ -1,4 +1,7 @@
 Meteor.methods({
+    getUsername: function (ownerId) {
+        return Meteor.users.findOne(ownerId, {fields: {username: 1}}).username;
+    },
     /**
      * Add member role to user on register
      *

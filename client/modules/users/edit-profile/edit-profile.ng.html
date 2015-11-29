@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-12 header">
+        <h1><i class="fa fa-edit"></i>Edit Profile</h1>
+    </div>
+</div>
+<div class="row">
+    <!-- EDIT MODE -->
+    <div class="col-md-12">
+        <form name="userProfileForm" role="form" ng-submit="updateUserProfile()" novalidate>
+            <div class="row">
+
+                <div class="form-group col-md-6">
+                    <label class="control-label" for="first_name">First Name</label>
+                    <input type="text"
+                           class="form-control"
+                           name="first_name"
+                           id="first_name"
+                           ng-model="user.profile.first_name">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label class="control-label" for="last_name">Last Name</label>
+                    <input type="text"
+                           class="form-control"
+                           name="last_name"
+                           id="last_name"
+                           ng-model="user.profile.last_name">
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="bio">Bio</label>
+                    <text-angular id="bio" ng-model="user.profile.bio"></text-angular>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a class="btn btn-default" ui-sref="full.usersDashboard({userId: $root.currentUser._id})">Cancel</a>
+
+        </form>
+
+    </div>
+    <!--<< EDIT MODE >>-->
+</div>
+

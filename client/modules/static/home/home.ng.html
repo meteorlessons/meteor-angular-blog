@@ -1,10 +1,28 @@
 <!-- Main component for a primary marketing message or call to action -->
 <div class="jumbotron">
     <h1>Navbar example</h1>
-    <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes
-        the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
     <p>To see the difference between static and fixed top navbars, just scroll.</p>
     <p>
         <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
     </p>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        side bar
+    </div>
+    <div class="col-md-9 post-list">
+        <dl ng-repeat="post in posts">
+            <dt>{{post.title}}
+                <small>Posted on: {{ post.createdAt | date : format : 'short'}} </small>
+                <small>Author: <a ui-sref="full.usersProfile({userId: post.owner})">{{post.ownerName}}</a></small>
+            </dt>
+            <dd>
+                <div ta-bind ng-model="post.summary"></div>
+                <a ui-sref="full.postView({postId: post._id})" class="text-info">
+                    <i class="fa fa-eye"></i>View Post
+                </a>
+            </dd>
+        </dl>
+    </div>
 </div>

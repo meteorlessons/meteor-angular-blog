@@ -11,7 +11,6 @@
 </div>
 <div class="row">
     <div class="col-md-12 post-view">
-
         <div ta-bind ng-model="post.body"></div>
         <div ng-show="post.owner === $root.currentUser._id">
             <a ui-sref="full.postEdit({userId: $root.currentUser._id, postId: post._id})"

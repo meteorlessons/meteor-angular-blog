@@ -6,12 +6,12 @@
     </div>
     <div class="row">
 
-        <div class="col-md-2 sidebar" ng-hide="editMode">
+        <div class="col-md-2 sidebar">
             <img src="/images/no-image.png" alt="">
             <button class="btn btn-primary btn-block">Update Image</button>
         </div>
 
-        <div class="col-md-7 content" ng-hide="editMode">
+        <div class="col-md-7 content">
             <p ng-hide="user.profile">No profile info has been added</p>
             <div ng-show="user.profile">
                 <h3 class="user-name">
@@ -29,10 +29,10 @@
 
         </div>
 
-        <div ng-hide="editMode" class="col-md-3 actions">
+        <div class="col-md-3 actions">
             <ul class="list-group">
                 <li class="list-group-item">
-                    <a href="#" class="text-primary" ng-click="editUser()">
+                    <a href="#" class="text-primary" ui-sref="full.usersEditProfile({userId: $root.currentUser._id})">
                         <i class="fa fa-edit"></i>Update Profile
                     </a>
                 </li>
@@ -41,50 +41,16 @@
                         <i class="fa fa-warning"></i>Change Password
                     </a>
                 </li>
+                <li class="list-group-item">
+                    <a class="text-primary" ui-sref="full.usersPosts({userId: $root.currentUser._id})">
+                        <i class="fa fa-warning"></i>My Posts
+                    </a>
+                </li>
 
             </ul>
 
 
         </div>
 
-        <!-- EDIT MODE -->
-        <div ng-show="editMode" class="col-md-12">
-            <form name="userProfileForm" role="form" ng-submit="updateUserProfile()" novalidate>
-                <div class="row">
-
-                    <div class="form-group col-md-6">
-                        <label class="control-label" for="first_name">First Name</label>
-                        <input type="text"
-                               class="form-control"
-                               name="first_name"
-                               id="first_name"
-                               ng-model="user.profile.first_name">
-                    </div>
-
-                    <div class="form-group col-md-6">
-                        <label class="control-label" for="last_name">Last Name</label>
-                        <input type="text"
-                               class="form-control"
-                               name="last_name"
-                               id="last_name"
-                               ng-model="user.profile.last_name">
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-md-12">
-                        <label for="bio">Bio</label>
-                        <text-angular id="bio" ng-model="user.profile.bio"></text-angular>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <a class="btn btn-default" ng-click="viewUser()">Cancel</a>
-
-            </form>
-
-        </div>
-        <!--<< EDIT MODE >>-->
     </div>
 </div>

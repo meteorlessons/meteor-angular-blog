@@ -14,6 +14,11 @@ function routes($stateProvider) {
             url: '/blog/post/:postId',
             templateUrl: 'client/modules/post/view/post-view.ng.html',
             controller: 'PostViewCtrl'
+        })
+        .state('full.postPreview', {
+            url: '/:userId/blog/post/:postId',
+            templateUrl: 'client/modules/post/preview/post-preview.ng.html',
+            controller: 'PostPreviewCtrl'
         });
 }
 

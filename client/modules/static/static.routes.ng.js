@@ -2,7 +2,8 @@ function routes($stateProvider) {
     $stateProvider
         .state('full.staticHome', {
             url: "/",
-            templateUrl: "client/modules/static/home/home.ng.html"
+            templateUrl: "client/modules/static/home/home.ng.html",
+            controller: 'StaticHomeCtrl'
         })
         .state('full.staticAbout', {
             url: '/about',
