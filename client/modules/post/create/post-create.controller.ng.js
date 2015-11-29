@@ -1,4 +1,5 @@
 function PostCreateCtrl($scope, $meteor, $state, $rootScope, alertService, $stateParams, HeadMeta) {
+
     HeadMeta.setTitle("Create Blog Post");
     HeadMeta.setMetaDescription("Blog using meteor and angular js.");
     HeadMeta.setMetaKeywords("meteor, angular");

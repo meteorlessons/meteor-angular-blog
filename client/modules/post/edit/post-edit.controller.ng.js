@@ -1,6 +1,9 @@
 function PostEditCtrl($scope, $rootScope, $meteor, $state, $stateParams, alertService, HeadMeta) {
 
-    $scope.$meteorSubscribe('editPost', $stateParams.postId, $stateParams.userId);
+    $rootScope.loading = true;
+    $scope.$meteorSubscribe('editPost', $stateParams.postId, $stateParams.userId).then(function(){
+        $rootScope.loading = false;
+    });
 
     $scope.post = $meteor.object(Posts, $stateParams.postId, false);
 
