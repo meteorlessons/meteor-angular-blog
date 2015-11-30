@@ -1,10 +1,16 @@
 function UsersEditProfileCtrl($scope, $rootScope, $meteor, $stateParams, alertService, $state, HeadMeta) {
 
-    $scope.user = $meteor.object(Meteor.users, $stateParams.userId, false);
+    $rootScope.loading = true;
 
-    HeadMeta.setTitle("Edit " + $scope.user.username.toUpperCase() + " Profile");
-    HeadMeta.setMetaDescription("edit user profile");
-    HeadMeta.setMetaKeywords("meteor, angular");
+    $scope.$meteorSubscribe('user', $stateParams.userId).then(function () {
+        $rootScope.loading = false;
+
+        $scope.user = $meteor.object(Meteor.users, $stateParams.userId, false);
+
+        HeadMeta.setTitle("Edit " + $scope.user.username.toUpperCase() + " Profile");
+        HeadMeta.setMetaDescription("meteor angular users dashboard");
+        HeadMeta.setMetaKeywords("meteor, angular");
+    });
 
     $scope.updateUserProfile = function () {
 

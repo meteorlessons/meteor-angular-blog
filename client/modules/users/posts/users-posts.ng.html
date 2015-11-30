@@ -1,7 +1,8 @@
-<div class="row">
+<div class="row post-header">
     <div class="col-md-12 header">
         <h1><i class="fa fa-dashboard"></i>My Posts</h1>
     </div>
+    <a ui-sref="full.postCreate" class="btn btn-primary create-post">Create New Post</a>
 </div>
 <div class="row">
     <div class="col-md-3">
@@ -9,7 +10,9 @@
     </div>
     <div class="col-md-9 post-list">
         <dl ng-repeat="post in posts">
-            <dt>{{post.title}}
+            <dt>
+                <a ng-show="post.published" ui-sref="full.postView({postId: post._id})" class="text-info post-list-title">{{post.title}}</a>
+                <p ng-hide="post.published" class="text-info post-list-title">{{post.title}}</p>
                 <small>Posted on: {{ post.createdAt | date : format : 'short'}}
                     <span ng-show="post.published" class="text-success"><i class="fa fa-check"></i>Published</span>
                     <span ng-hide="post.published" class="text-danger"><i class="fa fa-times"></i>Not Published</span>

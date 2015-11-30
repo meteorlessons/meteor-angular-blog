@@ -1,1 +1,30 @@
-<h1>Profile</h1>
+<div class="row post-header">
+    <div class="col-md-12 header">
+        <h1><i class="fa fa-user"></i>{{user.username}} Profile</h1>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-md-2 sidebar">
+        <img src="/images/no-image.png" alt="">
+    </div>
+
+    <div class="col-md-10 content">
+        <p ng-hide="user.profile">No profile info has been added</p>
+        <div ng-show="user.profile">
+            <h3 class="user-name">
+                {{user.profile.first_name}} {{user.profile.last_name}}<br>
+                <small>{{createdOn}}</small>
+            </h3>
+            <div class="user-bio">
+                <fieldset>
+                    <legend>Bio</legend>
+                    <div ng-bind-html="user.profile.bio"></div>
+                </fieldset>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

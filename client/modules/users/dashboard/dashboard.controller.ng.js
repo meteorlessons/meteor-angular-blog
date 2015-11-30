@@ -1,12 +1,17 @@
 function UsersDashboardCtrl($scope, $stateParams, $meteor, alertService, $rootScope, HeadMeta) {
 
-    HeadMeta.setTitle($rootScope.currentUser.username.toUpperCase() + " User Dashboard");
-    HeadMeta.setMetaDescription("meteor angular blog");
-    HeadMeta.setMetaKeywords("meteor, angular");
+    $rootScope.loading = true;
 
-    $scope.user = $meteor.object(Meteor.users, $stateParams.userId, false);
+    $scope.$meteorSubscribe('user', $stateParams.userId).then(function () {
+        $rootScope.loading = false;
 
-    $scope.createdOn = "Signed up: " + moment($scope.user.createdAt).format("MM-DD-YYYY");
+        $scope.user = $meteor.object(Meteor.users, $stateParams.userId, false);
+
+        HeadMeta.setTitle($scope.user.username.toUpperCase() + " Dashboard");
+        HeadMeta.setMetaDescription("meteor angular users dashboard");
+        HeadMeta.setMetaKeywords("meteor, angular");
+    });
+
 }
 
 angular.module('app-users')
